@@ -23,4 +23,4 @@ jobs:
       - name: Run the script
         env:
           PUSHSAFER_ACCESS_KEY: ${{ secrets.PUSHSAFER_ACCESS_KEY }}
-        run: main.py
+        run: python main.py
