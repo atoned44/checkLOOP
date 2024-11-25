@@ -1,0 +1,26 @@
+name: Send Notification Every 30 Minutes
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"  # Every 30 minutes
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run the script
+        env:
+          PUSHSAFER_ACCESS_KEY: ${{ secrets.PUSHSAFER_ACCESS_KEY }}
+        run: main.py
