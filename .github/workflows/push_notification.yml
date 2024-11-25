@@ -17,8 +17,17 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Check Python version
+        run: python --version
+
+      - name: Verify installed dependencies
+        run: pip show requests || echo "requests not installed"
+
       - name: Install dependencies
         run: pip install requests
+
+      - name: List files in workspace
+        run: ls -R
 
       - name: Run the script
         env:
