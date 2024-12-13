@@ -39,5 +39,7 @@ def send_notification():
     except Exception as e:
         logging.error(f"Unexpected error: {e}")
 
+<!-- 
 if __name__ == "__main__":
-    send_notification()
+    send_notification() 
+-->
